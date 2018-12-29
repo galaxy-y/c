@@ -1,0 +1,45 @@
+/*编写一个计算天数的程序，用户从键盘输入年月日，输出此日期是该年的第几天*/
+#include <stdio.h>
+
+int leap(int year)
+{
+	if(year%4 == 0 && year%100 != 0||year%400 == 0)
+		return 1 ;
+	else 
+		return 0 ;
+		
+}
+
+int figure(int year,int month,int day)
+{
+	int sum = 0,i,j,k,a[12]=
+	{
+		31,28,31,30,31,30,31,31,30,31,30,31
+	};
+	int b[12]=
+	{
+		31,29,31,30,31,30,31,31,30,31,30,31
+	};
+	if(leap(year))
+		for(i=0;i<month-1;i++)
+			sum+= b[i];
+	else 
+		for(i=0;i<month-1;i++)
+			sum+= a[i];
+	
+	sum += day;
+	
+	return sum;
+	
+	
+}
+
+void main()
+{
+	int year,month,day = 0;
+	int sum = 0;
+	printf("please enter the number of year,month and day:\n");
+	scanf("%d%d%d",&year,&month,&day);
+	sum = figure(year,month,day);
+	printf("the day is the %dth day of this year",sum);
+}
