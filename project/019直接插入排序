@@ -1,0 +1,37 @@
+#include <stdio.h>
+#define num 10
+
+void insort(int s[],int n)
+{
+	int i,j;
+	for (i = 2;i <= n;i++)
+	{
+		s[0] = s[i];
+		j = i-1;
+		while (s[0]<s[j])
+		{
+			s[j+1] = s[j];
+			j--;
+			
+		}
+		s[j+1] = s[0];
+		
+	}
+}
+
+int main()
+{
+	int a[num+1],i;
+	printf("请输入%d个数据\n",num);
+	for(i= 1; i<= num ;i++)
+		scanf("%d",&a[i]);
+	printf("原始排序：\n ");
+	for(i=1;i<=num;i++)
+		printf("%5d",a[i]);
+	insort(a,num);
+	printf("\n插入数据排序后顺序：\n");
+	for(i=1;i<num+1;i++)
+		printf("%5d",a[i]);
+	printf("\n");
+	return 0 ;
+}
