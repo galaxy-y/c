@@ -1,0 +1,33 @@
+#include <stdio.h>
+int main(void)
+{
+	int l,i,j,k = 0;
+	printf("请输入需要输出的正方形边长\n");
+	
+    scanf("%d",&l);
+    while(i<l)
+	{
+		printf("* ");
+		++i;
+	}
+	printf("\n");
+	while(j<l-1)
+	{
+		printf("*");
+		while(k<l-2)
+		{
+			printf("  ");
+			++k;
+		}
+		k = 0;
+		printf(" *");
+		printf("\n");
+		++j;
+    }
+	    while(i>0)
+	{
+		printf("* ");
+		--i;
+	}
+    return 0;
+}
